@@ -71,10 +71,10 @@ class DataLoader:
         """Loads the training and testing datasets from the specified file paths."""
 
         # Get the current working directory
-        data_dir = self.current_dir.parent / self.data_path           # Assume 'data' folder is outside the script's folder
+        data_dir = self.current_dir / self.data_path           # Assume 'data' folder is outside the script's folder
 
         # Update paths in the config for train and test files
-        train_file_path = os.path.join(data_dir, 'train.csv')
+        train_file_path = data_dir / self.train_file
         print(train_file_path)
         if train_file_path:
             self.train_data = pd.read_csv(train_file_path)
@@ -82,7 +82,7 @@ class DataLoader:
             print("Is not possible to read train data")  
             return False  
 
-        test_file_path = os.path.join(data_dir, 'test.csv')
+        test_file_path = data_dir / self.test_file
         if test_file_path:
             self.test_data = pd.read_csv(test_file_path)
         else:

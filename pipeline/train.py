@@ -19,7 +19,7 @@ class ModelTrainer:
         self.data_loader = data_loader
 
         # Get the current working directory
-        file_path = self.data_loader.current_dir.parent / cfg.pipeline.model_path 
+        file_path = self.data_loader.current_dir / cfg.pipeline.model_path 
         self.model_path = str(file_path)
 
     def train(self):

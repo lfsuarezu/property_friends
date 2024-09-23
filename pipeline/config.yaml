@@ -3,7 +3,7 @@ hydra:
 
 
 data_loader:
-    data_path: '/app/data'
+    data_path: 'data'
     train_file: 'train.csv'
     test_file: 'test.csv'
     target_column: "price"  # The target column
@@ -25,7 +25,7 @@ pipeline:
             n_estimators: 300
             max_depth: 5
             loss: "absolute_error"
-    model_path: '/app/models'
+    model_path: 'models'
     
 
       
