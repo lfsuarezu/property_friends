@@ -1,0 +1,6 @@
+pandas
+scikit-learn
+category_encoders
+joblib
+omegaconf
+hydra-core

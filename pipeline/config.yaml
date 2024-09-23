@@ -1,0 +1,32 @@
+hydra:
+    output_subdir: Null
+
+
+data_loader:
+    data_path: '/app/data'
+    train_file: 'train.csv'
+    test_file: 'test.csv'
+    target_column: "price"  # The target column
+    not_consider_column: 
+        - "id"         # The ID column to exclude
+        - "target" 
+    categorical_cols: 
+        - "type"
+        - "sector"
+ 
+      
+pipeline:
+    categorical_encoder:
+        type: "TargetEncoder"  # Ensure you have the appropriate import for TargetEncoder
+    model:
+        type: "GradientBoostingRegressor"
+        params:
+            learning_rate: 0.01
+            n_estimators: 300
+            max_depth: 5
+            loss: "absolute_error"
+    model_path: '/app/models'
+    
+
+      
+  
