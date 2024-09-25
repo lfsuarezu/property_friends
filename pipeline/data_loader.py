@@ -165,3 +165,12 @@ class DataLoader:
         """
         return self.X_test, self.y_test.values
     
+    def connect_to_database(db_config):
+        """
+        Database connection logic based on `db_config.provider`
+
+        Parameters:
+        - db_config: DictConfig: The Hydra configuration object for database settings.
+        """
+        logging.info(f"Connecting to {db_config.provider} database at {db_config.host}")     
+    

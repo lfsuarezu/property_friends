@@ -42,6 +42,9 @@ class ModelTrainer:
         Trains the model using the training data.
         """
         try:
+            if cfg.database.enabled:
+                self.connect_to_database(cfg.database)
+
             X_train, y_train = self.data_loader.get_train_data()
             self.data_loader.pipeline.fit(X_train, y_train)
             logging.info("Model trained successfully.")
@@ -95,6 +98,7 @@ class ModelTrainer:
             logging.error(f"Error during model evaluation: {e}")
             raise
 
+       
 
 #Using Hydra for configuration files and automate experiments
 @hydra.main(config_path=".", config_name="config")
@@ -107,6 +111,10 @@ def main(cfg: DictConfig):
     """
     try:
         data_loader = DataLoader(cfg)
+
+        if cfg.database.enabled:
+            data_loader.connect_to_database(cfg.database)
+
         if not data_loader.load_data():
             sys.exit(0)
         data_loader.prepare_data()
