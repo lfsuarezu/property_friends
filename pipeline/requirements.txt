@@ -4,3 +4,7 @@ category_encoders
 joblib
 omegaconf
 hydra-core
+fastapi
+uvicorn
+pydantic
+logging

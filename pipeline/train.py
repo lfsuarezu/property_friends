@@ -42,9 +42,6 @@ class ModelTrainer:
         Trains the model using the training data.
         """
         try:
-            if cfg.database.enabled:
-                self.connect_to_database(cfg.database)
-
             X_train, y_train = self.data_loader.get_train_data()
             self.data_loader.pipeline.fit(X_train, y_train)
             logging.info("Model trained successfully.")

@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the requirements file into the container
-COPY requirements.txt .
+COPY pipeline\requirements.txt .
 
 # Copy the API code into the container
 COPY api.py .
