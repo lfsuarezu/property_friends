@@ -27,7 +27,7 @@ pipeline:
             loss: "absolute_error"
     model_path: 'models'
 
-# Database integration settings (for future use)
+# Example for database integration settings (for future use)
 database:
   enabled: false  # Set to true to enable database integration
   provider: aws   # Options: aws, azure
