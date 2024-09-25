@@ -1,20 +1,20 @@
 hydra:
     output_subdir: Null
 
-
+# Data loader settings configuration
 data_loader:
-    data_path: 'data'
-    train_file: 'train.csv'
-    test_file: 'test.csv'
-    target_column: "price"  # The target column
-    not_consider_column: 
-        - "id"         # The ID column to exclude
-        - "target" 
-    categorical_cols: 
+    data_path: 'data'              # Directory for data
+    train_file: 'train.csv'        # Training file name
+    test_file: 'test.csv'          # Testing file name
+    target_column: "price"         # Target column for property price
+    not_consider_column:           # Columns to exclude
+        - "id"
+    categorical_cols:              # Categorical columns
         - "type"
         - "sector"
+
  
-      
+# Pipeline parameters configuration - Preprocessing and model     
 pipeline:
     categorical_encoder:
         type: "TargetEncoder"  # Ensure you have the appropriate import for TargetEncoder
@@ -26,6 +26,24 @@ pipeline:
             max_depth: 5
             loss: "absolute_error"
     model_path: 'models'
+
+# Database integration settings (for future use)
+database:
+  enabled: false  # Set to true to enable database integration
+  provider: aws   # Options: aws, azure
+  aws:
+    host: "your-rds-instance.amazonaws.com"
+    port: 3306
+    database: "your_database_name"
+    user: "your_username"
+    password: "your_password"
+  azure:
+    host: "your-azure-sql-server.database.windows.net"
+    port: 1433
+    database: "your_database_name"
+    user: "your_username"
+    password: "your_password"    
+
     
 
       
