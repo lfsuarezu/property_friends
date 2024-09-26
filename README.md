@@ -277,7 +277,7 @@ This project supports future integration with external databases like Amazon RDS
 if cfg.database.enabled:
     connect_to_database(cfg.database)
 ```
-Currently, the ``connect_to_database()`` function is a placeholder (not execute any operation). In the future, this integration could be used to log metrics, store results, or interact with external data sources.
+**Note:** Currently, the ``connect_to_database()`` function is a placeholder (not execute any operation). In the future, this integration could be used to log metrics, store results, or interact with external data sources.
 
 
 ---
