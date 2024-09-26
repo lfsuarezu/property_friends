@@ -111,14 +111,15 @@ def main(cfg: DictConfig):
 
         if cfg.database.enabled:
             data_loader.connect_to_database(cfg.database)
+        else:    
+            if not data_loader.load_data():
+                sys.exit(0)
 
-        if not data_loader.load_data():
-            sys.exit(0)
-        data_loader.prepare_data()
+            data_loader.prepare_data()
 
-        model_trainer = ModelTrainer(data_loader, cfg)
-        model_trainer.train()
-        model_trainer.evaluate()
+            model_trainer = ModelTrainer(data_loader, cfg)
+            model_trainer.train()
+            model_trainer.evaluate()
     except Exception as e:
         logging.error(f"Error in main execution: {e}")
         sys.exit(1)

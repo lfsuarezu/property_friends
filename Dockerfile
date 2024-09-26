@@ -5,11 +5,11 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the requirements file into the container
-COPY pipeline\requirements.txt .
+COPY pipeline/requirements.txt .
 
 # Copy the API code into the container
 COPY api.py .
-COPY models\ ./models/
+COPY models ./models/
 
 # Install the required Python packages
 RUN pip install --no-cache-dir -r requirements.txt

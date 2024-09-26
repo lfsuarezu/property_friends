@@ -29,7 +29,7 @@ pipeline:
 
 # Example for database integration settings (for future use)
 database:
-  enabled: false  # Set to true to enable database integration
+  enabled: false  # Default option set to false. Set to true to enable database integration
   provider: aws   # Options: aws, azure
   aws:
     host: "your-rds-instance.amazonaws.com"

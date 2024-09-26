@@ -7,4 +7,3 @@ hydra-core
 fastapi
 uvicorn
 pydantic
-logging
